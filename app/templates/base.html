@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/app/static/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="/app/static/js/bootstrap.min.js"></script>
+  <script defer src="/app/static/js/all.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="shortcut icon" type="image/png" href="/app/static/favicon.png" />
+  <title>Eggs64</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div class="container-fluid bg-light ml-auto">
+    <div class="row">
+      <div class="col-lg-2 col-md-0"></div>
+      <nav class="col-lg-8 col-md-12 navbar navbar-expand-lg navbar-light">
+        <h1>
+          <a class="mr-auto navbar-brand" href="/index"><i class="fas fa-egg"></i> Доставка яиц по городу Курску</a>
+        </h1>
+
+        <div class="mt-sm-1 collapse navbar-collapse" id="navbarText">
+          <h5 class="ml-1 mt-sm-1 ml-auto navbar-text">
+            <i class="fas fa-phone"></i>
+            тел.: +7(777)777-77-77
+          </h5>
+        </div>
+      </nav>
+        <div class="col-lg-2 col-md-0"></div>
+    </div>
+  </div>
+
+  {% block content%}{% endblock %}
+  <div class="wrapper flex-grow-1"></div>
+<footer class="container-fluid bg-light">
+    <div class="row-cols-6 text-center">
+        <h5 class="col-12">
+            <i class="far fa-copyright"></i>
+            Created by Kairick 2020
+        </h5>
+    </div>
+</footer>
+</body>
+
+</html>
