@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="mb-auto container-fluid">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="mt-3 text-center col-4">
+                <img class="rounded img-fluid" src="../static/success.jpeg">
+                <h2 class="mb-3">Заказ успешно сформирован! Ожидайте звонка оператора!</h2>
+                <h4 class="mt-2">Детали заказа</h4>
+                <p>Яйца будут доставлены для: {{ form.data['customer'] }}</p>
+                <p>По адресу {{ form.data['address'] }}</p>
+                {% if form.data['eggs_count'] in [1, 101] %}
+                    <p>В количестве {{ form.data['eggs_count'] }} короб</p>
+                {% elif form.data['eggs_count'] in range(11,19) %}
+                    <p>В количестве {{ form.data['eggs_count'] }} коробов</p>
+                {% elif (form.data['eggs_count']|string)[-1]  in '234' %}
+                    <p>В количестве {{ form.data['eggs_count'] }} короба</p>
+                {% else %}
+                    <p>В количестве {{ form.data['eggs_count'] }} коробов</p>
+                {% endif %}
+                <p>Контактный номер телефона: {{ form.data['phone'] }}</p>
+                <p>
+                    <a href={{ url_for('index') }}>Назад</a>
+                </p>
+            </div>
+
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+
+{% endblock %}
