@@ -7,7 +7,7 @@
                 <img class="rounded img-fluid" src="../static/success.jpeg">
                 <h2 class="mb-3">Заказ успешно сформирован! Ожидайте звонка оператора!</h2>
                 <h4 class="mt-2">Детали заказа</h4>
-                <p>Яйца будут доставлены для: {{ form.data['customer'] }}</p>
+                <p>Яйца будут доставлены для {{ form.data['customer'] }}</p>
                 <p>По адресу {{ form.data['address'] }}</p>
                 {% if form.data['eggs_count'] in [1, 101] %}
                     <p>В количестве {{ form.data['eggs_count'] }} короб</p>
