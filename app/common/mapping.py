@@ -92,12 +92,13 @@ def convert_date(data):
     :param data:
     :return:
     """
-    if not data:
-        return []
-    for key, value in data.items():
-        if isinstance(value, datetime):
-            data[key] = float(value.timestamp())
-        elif isinstance(value, date):
-            data[key] = float(time.mktime(value.timetuple()))
+    for item in data:
+        if not item:
+            return []
+        for key, value in item.items():
+            if isinstance(value, datetime):
+                item[key] = float(value.timestamp())
+            elif isinstance(value, date):
+                item[key] = float(time.mktime(value.timetuple()))
 
     return data

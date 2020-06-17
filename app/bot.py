@@ -9,7 +9,11 @@ from config import chat_id
 def send_order(message):
     if message.text == '/last':
         msg = get_last_order()
-        msg = create_answer([msg])
+    if message.text == '/today':
+        msg = get_today_orders()
+    if message.text == '/ten':
+        msg = get_ten_orders()
+    msg = create_answer(msg)
     bot.send_message(message.chat.id, msg)
 
 
