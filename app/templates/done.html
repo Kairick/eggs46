@@ -2,23 +2,25 @@
 {% block content %}
     <div class="mb-auto container-fluid">
         <div class="row">
-            <div class="col-lg-4"></div>
+            <div class="col-4"></div>
             <div class="mt-3 text-center col-4">
                 <img class="rounded img-fluid" src="../static/success.jpeg">
-                <h2 class="mb-3">Заказ успешно сформирован! Ожидайте звонка оператора!</h2>
-                <h4 class="mt-2">Детали заказа</h4>
-                <p>Яйца будут доставлены для {{ form.data['customer'] }}</p>
-                <p>По адресу {{ form.data['address'] }}</p>
-                {% if form.data['eggs_count'] in [1, 101] %}
-                    <p>В количестве {{ form.data['eggs_count'] }} короб</p>
-                {% elif form.data['eggs_count'] in range(11,19) %}
-                    <p>В количестве {{ form.data['eggs_count'] }} коробов</p>
-                {% elif (form.data['eggs_count']|string)[-1]  in '234' %}
-                    <p>В количестве {{ form.data['eggs_count'] }} короба</p>
+                <h2 class="big-text mb-3">Заказ успешно сформирован! Ожидайте звонка оператора!</h2>
+                <h4 class="small-text mb-3">Заказ успешно сформирован! Ожидайте звонка оператора!</h4>
+                <h4 class="big-text mt-2">Детали заказа</h4>
+                <h5 class="small-text mt-2">Детали заказа</h5>
+                <p>Яйца будут доставлены для {{ get_last()['customer'] }}</p>
+                <p>По адресу {{ get_last()['address'] }}</p>
+                {% if get_last()['eggs_count'] in [1, 101] %}
+                    <p>В количестве {{ get_last()['eggs_count'] }} короб</p>
+                {% elif get_last()['eggs_count'] in range(11,19) %}
+                    <p>В количестве {{ get_last()['eggs_count'] }} коробов</p>
+                {% elif (get_last()['eggs_count']|string)[-1]  in '234' %}
+                    <p>В количестве {{ get_last()['eggs_count'] }} короба</p>
                 {% else %}
-                    <p>В количестве {{ form.data['eggs_count'] }} коробов</p>
+                    <p>В количестве {{ get_last()['eggs_count'] }} коробов</p>
                 {% endif %}
-                <p>Контактный номер телефона: {{ form.data['phone'] }}</p>
+                <p>Контактный номер телефона: {{ get_last()['phone'] }}</p>
                 <p>
                     <a href={{ url_for('index') }}>Назад</a>
                 </p>

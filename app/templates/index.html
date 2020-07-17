@@ -5,8 +5,8 @@
           action="{{ url_for('index') }}" method="post" name="order">
         {{ form.hidden_tag() }}
         <div class="row">
-            <p class="col-5"></p>
-            <p class="col-2">
+            <div class="col"></div>
+            <p class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8">
                 {{ form.customer.label }} <br>
                 {{ form.customer(size=32, placeholder='или название организации',
              class='text-monospace form-control') }} <br>
@@ -14,11 +14,11 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
-            <p class="col-5"></p>
+            <div class="col"></div>
         </div>
         <div class="row">
-            <p class="col-5"></p>
-            <p class="col-2">
+            <p class="col"></p>
+            <p class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8">
                 {{ form.address.label }} <br>
                 {{ form.address(size=32, placeholder='ул. Ленина 21',
              class='text-monospace form-control') }} <br>
@@ -26,12 +26,12 @@
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
-            <p class="col-5"></p>
+            <p class="col"></p>
         </div>
 
         <div class="row">
-            <p class="col-5"></p>
-            <p class="col-2">
+            <p class="col"></p>
+            <p class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8">
                 {{ form.phone.label }} <br>
                 {{ form.phone(size=32, placeholder='Только цифры',
                     class='text-monospace form-control') }} <br>
@@ -39,12 +39,12 @@
                     <span style="color: red;">[{{ 'Неверный формат данных' }}]</span>
                 {% endfor %}
             </p>
-            <p class="col-5"></p>
+            <p class="col"></p>
         </div>
 
         <div class="row">
-            <p class="col-5"></p>
-            <p class="col-2">
+            <p class="col"></p>
+            <p class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8">
                 {{ form.eggs_count.label }} <br>
                 {{ form.eggs_count(size=32, placeholder='В одном коробе 12 лотков',
              class='text-monospace form-control') }} <br>
@@ -52,11 +52,11 @@
                     <span style="color: red;">[{{ 'Введите количество коробов' }}]</span>
                 {% endfor %}
             </p>
-            <p class="col-5"></p>
+            <p class="col"></p>
         </div>
         <p>
             {{ form.submit(class="btn btn-primary") }}
         </p>
     </form>
-    <h5 class="text-center mt-3 mb-auto">Доставка осуществляется с 10:00 до 16:00 по будням</h5>
+    <h5 class="delivery-time text-center mt-3 mb-auto">Доставка осуществляется с 10:00 до 16:00 по будням</h5>
 {% endblock %}

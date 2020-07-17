@@ -27,24 +27,31 @@
   {% block navbar %}
   <div class="container-fluid bg-light ml-auto">
     <div class="row">
-      <div class="col-lg-2 col-md-0"></div>
-      <nav class="col-lg-8 col-md-12 navbar navbar-expand-lg navbar-light">
-        <h1>
-          <a class="mr-auto navbar-brand" href="/index"><i class="fas fa-egg"></i> Доставка яиц по городу Курску</a>
-        </h1>
-
-        <div class="mt-sm-1 collapse navbar-collapse" id="navbarText">
+      <div class="col-xl-0 col-lg-1"></div>
+      <nav class="col-xl-12 col-lg-10 navbar navbar-light">
+        <h2>
+          <a class="mr-auto navbar-brand" href="/index">
+              <span><i class="fas fa-egg"></i> Доставка</span>
+              <span class="title-text"> яиц по городу Курску</span>
+          </a>
+        </h2>
+        <div class="mt-sm-1 navbar" id="navbarText">
           <h5 class="mt-sm-1 mr-5 ml-auto">
-            Текущая цена за короб - {{ get_current_price() }}
+              <span class="price1">Текущая</span>
+              <span class="price2"> цена за короб - </span>
+              <span>{{ get_current_price() }}</span>
               <i class="fas fa-ruble-sign"></i>
           </h5>
           <h5 class="ml-5 mt-sm-1  navbar-text">
-            <i class="fas fa-phone"></i>
-            тел.: +7(777)777-77-77
+              <a class="text-decoration-none" href="tel:+7(777)777-77-77">
+                   <i title="+7(777)777-77-77" class="fas fa-phone"></i>
+                  <span class="phone"> тел.: +7(777)777-77-77 </span>
+              </a>
+
           </h5>
         </div>
       </nav>
-      <div class="col-lg-2 col-md-0"></div>
+      <div class="col-xl-0 col-lg-1"></div>
     </div>
   </div>
   {% endblock %}
