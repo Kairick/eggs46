@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block content %}
+    <div class="mb-auto">
     <form class="mb-auto mt-5 container-fluid text-center form-group"
           action="{{ url_for('index') }}" method="post" name="order">
         {{ form.hidden_tag() }}
-        <div class="row">
+        <div class="row ">
             <div class="col"></div>
             <p class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8">
                 {{ form.customer.label }} <br>
@@ -55,8 +56,10 @@
             <p class="col"></p>
         </div>
         <p>
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="btn btn-success") }}
         </p>
     </form>
-    <h5 class="delivery-time text-center mt-3 mb-auto">Доставка осуществляется с 10:00 до 16:00 по будням</h5>
+    <h5 class="delivery-time text-center mt-3 ">Доставка осуществляется с 10:00 до 16:00 по будням</h5>
+    </div>
+
 {% endblock %}

@@ -42,7 +42,4 @@ def base_processor():
         res = get_price()
         return res
 
-    def get_last():
-        res = get_last_order()
-        return res[0]
-    return dict(get_current_price=get_current_price, get_last=get_last)
+    return dict(get_current_price=get_current_price)
