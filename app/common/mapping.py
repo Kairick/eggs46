@@ -1,5 +1,10 @@
 from sqlalchemy import inspect
-from collections import Iterable
+import collections
+
+try:
+    collectionsAbc = collections.abc
+except AttributeError:
+    collectionsAbc = collections
 from datetime import datetime, date
 import time
 
@@ -38,7 +43,7 @@ def map_sql_objects_fields(obj_array, max_depth=None):
 
                     for r in rellations:
                         arr = getattr(item, r.key)
-                        if isinstance(arr, Iterable):
+                        if isinstance(arr, collectionsAbc.Iterable):
                             res[r.key] = map_sql_objects_fields(arr, current_depth)
                         else:
                             res[r.key] = single_object_map(arr, current_depth)
@@ -78,7 +83,7 @@ def single_object_map(obj: object, max_depth = None):
 
         for r in rellations:
             arr = getattr(obj, r.key)
-            if isinstance(arr, Iterable):
+            if isinstance(arr, collectionsAbc.Iterable):
                 res[r.key] = map_sql_objects_fields(arr, current_depth)
             else:
                 res[r.key] = single_object_map(arr, current_depth)

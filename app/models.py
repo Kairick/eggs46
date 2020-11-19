@@ -24,7 +24,6 @@ class BaseTable(db.Model):
 
 class Order(BaseTable):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
         BaseTable.__init__(self)
     customer = db.Column(db.String, index=True)
     address = db.Column(db.String, index=True)
